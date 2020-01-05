@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Top Stories</h1>
-        <story v-for="id of storyIdsToShow" :key="id" :id="id" />
+        <story v-for="id of storyLimit" :key="id" :id="id" />
     </div>
 </template>
 
@@ -9,6 +9,7 @@
 import axios from 'axios';
 import Story from './Story';
 import { getStoryIds } from '../utils/hnapi';
+import { debounce } from '../utils/debounce';
 
 const MIN_STORIES_COUNT = 20;
 const MAX_STORIES_COUNT = 500;
@@ -29,7 +30,7 @@ export default {
                 this.topStoriesIds = data;
             });
         },
-        scroll() {
+        scroll: debounce(function() {
             const bottomOfWindow =
                 document.documentElement.scrollTop + window.innerHeight ===
                 document.documentElement.offsetHeight;
@@ -43,12 +44,7 @@ export default {
 
                 this.storyLimit = limit;
             }
-        }
-    },
-    computed: {
-        storyIdsToShow() {
-            return this.topStoriesIds.slice(0, this.storyLimit);
-        }
+        }, 500)
     },
     beforeMount() {
         this.fetchTopStories();
