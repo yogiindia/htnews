@@ -35,7 +35,6 @@ export default {
         padding: 0;
         text-transform: capitalize;
         color: #fb8042;
-        text-align: center;
         font-family: 'Roboto', sans-serif;
     }
 }

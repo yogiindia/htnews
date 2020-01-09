@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <h1>Top Stories</h1>
-        <story v-for="id of storyLimit" :key="id" :id="id" />
+    <div class="container">
+        <story
+            v-for="(id, index) of storiesToShow"
+            :count="index + 1"
+            :key="index"
+            :id="id"
+        >
+            {{ index }}
+        </story>
     </div>
 </template>
 
@@ -24,12 +30,18 @@ export default {
             topStoriesIds: []
         };
     },
+    computed: {
+        storiesToShow() {
+            return this.topStoriesIds.slice(this.storyLimit);
+        }
+    },
     methods: {
         fetchTopStories() {
             getStoryIds().then(data => {
                 this.topStoriesIds = data;
             });
         },
+
         scroll: debounce(function() {
             const bottomOfWindow =
                 document.documentElement.scrollTop + window.innerHeight ===
@@ -59,27 +71,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.person {
-    background: #ccc;
-    border-radius: 2px;
-    width: 20%;
-    margin: 0 auto 15px auto;
-    padding: 15px;
-
-    img {
-        width: 100%;
-        height: auto;
-        border-radius: 2px;
-    }
-
-    p:first-child {
-        text-transform: capitalize;
-        font-size: 2rem;
-        font-weight: 900;
-    }
-
-    .text-capitalize {
-        text-transform: capitalize;
-    }
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 72px;
 }
 </style>

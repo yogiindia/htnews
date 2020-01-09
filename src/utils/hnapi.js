@@ -9,5 +9,6 @@ export const getStoryIds = async () => {
 
 export const getStory = async id => {
     const response = await axios.get(`${HN_API_URL}item/${id}.json`);
+
     return response.data;
 };
