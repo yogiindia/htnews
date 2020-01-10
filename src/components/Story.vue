@@ -1,14 +1,23 @@
 <template>
-    <div class="story-container">
+    <div class="story__container">
         <div class="story" v-if="story">
-            <div class="counter">{{ count }}</div>
-            <div>{{ story.score }}</div>
-            <h1 v-if="story" class="title">
+            <div class="story__counter">{{ count }}</div>
+            <div class="story__score">
+                <svgicon
+                    name="triangle"
+                    width="12"
+                    height="12"
+                    color="#fb8042"
+                ></svgicon>
+                <span>
+                    {{ story.score }}
+                </span>
+            </div>
+            <h1 v-if="story" class="story__title">
                 <a :href="story.url">
                     <span>{{ story.title }}</span>
                     <span>({{ story.url | domain }})</span>
                 </a>
-                <span>{{ story.time | formatTimeStamp }}</span>
             </h1>
         </div>
     </div>
@@ -32,7 +41,6 @@ export default {
             return format(new Date(timestamp * 1000));
         },
         domain(value) {
-            console.log('url:', value);
             try {
                 const url = new URL(value);
                 return url.hostname;
@@ -55,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.story-container {
+.story__container {
     background-color: #ffffff;
     font-family: 'Roboto', sans-serif;
     box-shadow: 0 9.6px 17.3px rgba(0, 0, 0, 0.09),
@@ -68,12 +76,34 @@ export default {
 
 .story {
     display: grid;
-    grid-template-columns: 10% 10% 1fr;
+    grid-template-columns: 5% 10% 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: '. . .';
 }
 
-.title {
+.story__score {
+    height: 42px;
+    color: #fb8042;
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    & > svg {
+        align-self: end;
+        justify-self: center;
+        margin-bottom: 2px;
+    }
+}
+
+.story__title {
+    padding-top: 5px;
+    line-height: 0.85em;
     a {
         text-decoration: none;
         cursor: pointer;
@@ -90,7 +120,7 @@ export default {
     }
 }
 
-.counter {
+.story__counter {
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -101,5 +131,6 @@ export default {
     color: #fff;
     font-size: 18px;
     background-color: #fb8042;
+    margin: 5px auto;
 }
 </style>
