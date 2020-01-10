@@ -27,9 +27,9 @@ export default {
     height: 40px;
     background-color: #fff;
     border-bottom: 1px solid #fff;
-    box-shadow: 0 2.5px 3.6px rgba(0, 0, 0, 0.049),
-        0 6.9px 10px rgba(0, 0, 0, 0.063), 0 16.6px 24.1px rgba(0, 0, 0, 0.077),
-        0 55px 80px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 0.5px 3.6px rgba(0, 0, 0, 0.024),
+        0 1.3px 10px rgba(0, 0, 0, 0.035), 0 3px 24.1px rgba(0, 0, 0, 0.046),
+        0 10px 80px rgba(0, 0, 0, 0.07);
 
     & > h1 {
         margin: 0;

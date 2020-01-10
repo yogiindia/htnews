@@ -13,12 +13,44 @@
                     {{ story.score }}
                 </span>
             </div>
-            <h1 v-if="story" class="story__title">
-                <a :href="story.url">
-                    <span>{{ story.title }}</span>
-                    <span>({{ story.url | domain }})</span>
-                </a>
-            </h1>
+            <div class="story__info">
+                <h1 v-if="story" class="story__title">
+                    <a :href="story.url" target="_blank">
+                        <span>{{ story.title }}</span>
+                        <span>({{ story.url | domain }})</span>
+                    </a>
+                </h1>
+                <div class="post__info">
+                    <svgicon
+                        name="clock"
+                        width="14"
+                        height="14"
+                        color="#fb8042"
+                        :fill="false"
+                    ></svgicon>
+                    <span>{{ story.time | formatTimeStamp }}</span>
+                </div>
+                <div class="post__info">
+                    <svgicon
+                        name="user"
+                        width="14"
+                        height="14"
+                        color="#fb8042"
+                        :fill="false"
+                    ></svgicon>
+                    <span>{{ story.by }}</span>
+                </div>
+                <div class="post__info">
+                    <svgicon
+                        name="comment"
+                        width="14"
+                        height="14"
+                        color="#fb8042"
+                        :fill="false"
+                    ></svgicon>
+                    <span>{{ story.descendants }}</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -103,9 +135,28 @@ export default {
     }
 }
 
-.story__title {
+.story__info {
     padding-top: 5px;
-    line-height: 0.85em;
+    line-height: 1.5em;
+}
+
+.post__info {
+    margin-right: 20px;
+    display: inline-block;
+
+    & > svg {
+        vertical-align: text-top;
+    }
+    & > span {
+        font-size: 12px;
+        color: rgba($color: #000000, $alpha: 0.65);
+        margin-left: 8px;
+        font-weight: 900;
+        vertical-align: text-bottom;
+    }
+}
+
+.story__title {
     a {
         text-decoration: none;
         cursor: pointer;
