@@ -18,6 +18,7 @@ export default {
 <style lang="scss" scoped>
 .bar {
     position: fixed;
+    z-index: 9999;
     display: grid;
     grid-template-columns: 1fr 9fr;
     grid-template-rows: 40px;

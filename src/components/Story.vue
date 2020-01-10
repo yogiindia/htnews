@@ -64,17 +64,19 @@ export default {
 
 <style lang="scss" scoped>
 .story__container {
+    position: relative;
     background-color: #ffffff;
     font-family: 'Roboto', sans-serif;
-    box-shadow: 0 9.6px 17.3px rgba(0, 0, 0, 0.09),
-        0 40px 100px rgba(0, 0, 0, 0.046);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    min-height: 100px;
+    margin-top: 1px;
+    margin-bottom: 2px;
+    min-height: 80px;
     padding: 30px;
 }
 
 .story {
+    position: absolute;
+    width: 100%;
+    left: -20px;
     display: grid;
     grid-template-columns: 5% 10% 1fr;
     grid-template-rows: 1fr;
@@ -82,10 +84,10 @@ export default {
 }
 
 .story__score {
-    height: 42px;
+    height: 52px;
     color: #fb8042;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     margin: 5px auto;
     display: grid;
@@ -125,11 +127,11 @@ export default {
     text-align: center;
     vertical-align: middle;
     line-height: 2.2em;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     padding: 1px;
     color: #fff;
-    font-size: 18px;
+    font-size: 22px;
     background-color: #fb8042;
     margin: 5px auto;
 }
