@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <story v-for="(id, index) of storiesToShow" :count="index + 1" :key="index" :id="id">{{ index }}</story>
+    <div class="loading__container" v-show="storyLimit !== storyMaxLimit">Loading ...</div>
   </div>
 </template>
 
@@ -73,5 +74,18 @@ export default {
   width: 80%;
   margin: 0 auto;
   padding-top: 72px;
+}
+
+.loading__container {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  padding: 5px 0;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
 }
 </style>
