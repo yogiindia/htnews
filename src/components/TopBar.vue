@@ -2,6 +2,9 @@
   <div class="bar">
     <logo />
     <h1>htnews</h1>
+    <a href="https://github.com/yogiindia/htnews">
+      <img src="@/assets/github.png" />
+    </a>
   </div>
 </template>
 
@@ -20,7 +23,7 @@ export default {
   position: fixed;
   z-index: 9999;
   display: grid;
-  grid-template-columns: 1fr 9fr;
+  grid-template-columns: 1fr 9fr 80px;
   grid-template-rows: 40px;
   width: 100%;
   padding: 10px 20px;
