@@ -73,7 +73,7 @@ export default {
 .container {
   width: 80%;
   margin: 0 auto;
-  padding-top: 72px;
+  padding-top: 90px;
 }
 
 .loading__container {
@@ -83,9 +83,10 @@ export default {
   letter-spacing: 2px;
   text-transform: lowercase;
   padding: 5px 0;
-  margin-top: 3px;
+  margin-top: 5px;
   margin-bottom: 5px;
   font-family: "Roboto", sans-serif;
   background-color: #fff;
+  color: #fb8042;
 }
 </style>
