@@ -1,7 +1,7 @@
 <template>
   <div class="bar">
     <logo />
-    <h1>top news</h1>
+    <h1>htnews</h1>
   </div>
 </template>
 
